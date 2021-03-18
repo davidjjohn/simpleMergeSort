@@ -11,9 +11,9 @@ import java.util.Random;
 public class Main {
 
     // class members
-    private static long count;
-    private static Random rand;
-    private static ArrayList<Double> myNumbers;
+    private static long count;      // 64 bit integer for counting steps
+    private static Random rand;     // Random object for generating test sets
+    private static ArrayList<Double> myNumbers; // doubles to sort
 
     // utility method to populate myNumbers
     private static void populate(int N){
