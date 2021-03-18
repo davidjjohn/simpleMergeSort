@@ -1,3 +1,8 @@
+// Simple recursive MergeSort
+//
+// David John
+// March 2021
+
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -32,7 +37,7 @@ public class Main {
 
 	    // print truncated result
         System.out.println("\nTruncated output\n");
-	    for(int i=0; i< Math.min(Result.size(), 10);i++){
+	    for(int i=0; i< Math.min(Result.size(), 16);i++){
 	      System.out.println(Result.get(i));
         }
 
@@ -40,6 +45,8 @@ public class Main {
 	    System.out.println("Number of steps: "+count);
 
     }
+
+    // ------------------------
 
     // Method to merge two sorted (ascending order) lists into one
     // sorted list
@@ -62,25 +69,24 @@ public class Main {
         // if first is still not empty, move balance
         // of first to sorted list
         if (!FirstList.isEmpty()){
-            for(Double XXX : FirstList){
-                count++;
-                sortedtemp.add(XXX);
-            }
+            count+=FirstList.size();
+            sortedtemp.addAll(FirstList);
         }
 
         // if second is still not empty, move balance
         // of second to sorted list
         if (!SecondList.isEmpty()){
-            for(Double XXX : SecondList){
-                count++;
-                sortedtemp.add(XXX);
+            count += SecondList.size();
+            sortedtemp.addAll(SecondList);
             }
-        }
+
 
         // return the sorted list
         return sortedtemp;
 
     }
+
+    // -----------------------------
 
     // mergesort method
     public static ArrayList<Double> MergeSort(ArrayList<Double> theList){
@@ -92,8 +98,12 @@ public class Main {
             int middle = theList.size()/2;
 
             // create and mergesort two arraylists [start,end)
+            // this is a bit sleezy
+            // This detail could be pushed under the rug but would be present
+            // in one form or another.  Adds to the time & time complexities.
             ArrayList<Double> A = new ArrayList<Double>(theList.subList(0,middle));
             ArrayList<Double> B = new ArrayList<Double>(theList.subList(middle,theList.size()));
+
             A = MergeSort(A);
             B = MergeSort(B);
 
