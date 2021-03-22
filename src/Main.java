@@ -1,7 +1,8 @@
-// Simple recursive MergeSort
+// Simple recursive MergeSort  which has complexity N*lg(N)
 //
 // David John
 // March 2021
+
 
 
 import java.util.ArrayList;
